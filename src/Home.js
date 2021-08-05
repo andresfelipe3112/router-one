@@ -1,6 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const Home = () => {
+  const { hash, pathname, search, state, key } = useLocation()
+  console.log(hash, pathname, search, state, key)
   return (
     <div>
       <div className='App'>

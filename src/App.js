@@ -1,19 +1,17 @@
 import './App.css'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from 'react-router-dom'
+import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import Home from './Home'
+import NavBar from './NavBar'
+import Store from './Store'
 
 function App () {
   return (
     <Router>
+      <NavBar />
+
       <Switch>
         <Route path='/store'>
-          Store <br />
-          Hola mundo!
+          <Store />
         </Route>
         <Route path='/home'>
           <Home /> {/* La prop especial children  */}
