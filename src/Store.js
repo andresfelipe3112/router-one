@@ -12,16 +12,6 @@ import StoreNavBar from './StoreNavBar'
 
 const Store = () => {
   const { path } = useRouteMatch()
-  const { state } = useLocation()
-  const history = useHistory()
-  const isLoggedIn = false
-  useEffect(() => {
-    setTimeout(() => {
-      if (state.goBackTo) {
-        history.push(state.goBackTo)
-      }
-    }, 3 * 1000)
-  }, [state])
 
   return (
     <div>

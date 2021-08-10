@@ -3,6 +3,9 @@ import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import Home from './Home'
 import NavBar from './NavBar'
 import Store from './Store'
+import { useAuth } from './provider/AuthProvider'
+import { useEffect } from 'react'
+import ProtectedRoute from './ProtectedRoute'
 
 function App () {
   return (
@@ -10,14 +13,14 @@ function App () {
       <NavBar />
 
       <Switch>
-        <Route path='/store'>
-          <Store />
+        <Route path='/' exact>
+          <Redirect to='/home' />
         </Route>
+        <ProtectedRoute path='/store'>
+          <Store />
+        </ProtectedRoute>
         <Route path='/home'>
           <Home /> {/* La prop especial children  */}
-        </Route>
-        <Route path='/'>
-          <Redirect to='/home' />
         </Route>
       </Switch>
     </Router>

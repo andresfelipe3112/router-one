@@ -1,15 +1,22 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
+import { useAuth } from './provider/AuthProvider'
 
 const Home = () => {
-  const { hash, pathname, search, state, key } = useLocation()
-  console.log(hash, pathname, search, state, key)
+  const history = useHistory()
+  const { signIn } = useAuth()
   return (
     <div>
       <div className='App'>
         <header className='App-header'>
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
+          <button
+            onClick={() => {
+              signIn(() => {
+                history.push('/store')
+              })
+            }}
+          >
+            Login
+          </button>
           <Link to='/store'>Learn React</Link>
         </header>
       </div>
