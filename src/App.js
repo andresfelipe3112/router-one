@@ -20,7 +20,7 @@ function App () {
           <Store />
         </ProtectedRoute>
         <Route path='/home'>
-          <Home /> {/* La prop especial children  */}
+          <Home /> {/* La prop especial childrenn */}
         </Route>
       </Switch>
     </Router>
